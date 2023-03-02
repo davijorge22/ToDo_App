@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Deletar Tarefa</title>
+</head>
+<body>
+
+<h2>Você tem certeza que quer deletar a tarefa {{item}}? </h2>
+<a href="{ url 'list' %}"> Cancel</a>
+
+<form method = "POST" action="">
+    {% csrf_token %}
+    <input type="submit", name="Confirm">
+</form>
+</body>
+</html>

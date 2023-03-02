@@ -1,23 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
+{% load static %}
+
 <head>
     <meta charset="UTF-8">
     <title>To do App</title>
 </head>
+
+
 <body>
 <h1>To do APP</h1>
 
 <form method="POST" action="/">
     {% csrf_token %}
-    {{form}}
+    {{form.title}}
     <input type="submit" name="Create Task">
 </form>
 
 {% for task in tasks %}
 <div>
     <a href="{% url 'update_task' task.id %}" > Update </a>
-    <p>{{task}}</p>
+    <a href="{% url 'delete_task' task.id %}"> Delete</a>
+
+    {% if task.complete == True %}
+    <strike>{{task}}</strike>
+    {% else %}
+    <span>{{task}}</span>
+    {% endif %}
 </div>
+
 {% endfor %}
 </body>
 </html>

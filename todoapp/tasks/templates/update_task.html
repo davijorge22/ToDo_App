@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load static %}
+
 <head>
     <meta charset="UTF-8">
     <title>Update Task</title>
@@ -7,8 +9,10 @@
 <body>
 <h3>Update Task</h3>
 
-<form action="">
+<form method="POST" action="">
+    {% csrf_token %}
 
+    {{form}}
   <input type="submit" name='Update Task'>
 </form>
 </body>
